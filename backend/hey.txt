@@ -1,0 +1,6 @@
+this is our git repo and i hope you all have already downloaded the local git software :
+
+if not , dont worry .
+this is the site where you can download that. 
+
+https://git-scm.com/ 
