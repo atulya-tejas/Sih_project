@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // SIGNUP FORM
     // ============================================================
 
-    const signupForm =
-        document.getElementById("signup-form");
+    const signupForm = document.getElementById("signup-form");
 
     if (!signupForm) {
         console.error("Signup form not found.");
@@ -17,20 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // INPUTS
     // ============================================================
 
-    const nameInput =
-        document.getElementById("name-input");
-
-    const roleInput =
-        document.getElementById("role-input");
-
-    const emailInput =
-        document.getElementById("signup-email-input");
-
-    const passwordInput =
-        document.getElementById("signup-password-input");
-
-    const submitButton =
-        document.getElementById("signup-submit-btn");
+    const nameInput = document.getElementById("name-input");
+    const roleInput = document.getElementById("role-input");
+    const emailInput = document.getElementById("signup-email-input");
+    const passwordInput = document.getElementById("signup-password-input");
+    const submitButton = document.getElementById("signup-submit-btn");
 
 
     // ============================================================
@@ -65,17 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // Get values
-            const username =
-                nameInput.value.trim();
-
-            const email =
-                emailInput.value.trim().toLowerCase();
-
-            const password =
-                passwordInput.value;
-
-            const role =
-                roleInput.value;
+            const username = nameInput.value.trim();
+            const email = emailInput.value.trim().toLowerCase();
+            const password = passwordInput.value;
+            const role = roleInput.value;
 
 
             // ====================================================
@@ -83,44 +66,29 @@ document.addEventListener("DOMContentLoaded", () => {
             // ====================================================
 
             if (!username) {
-
                 alert("Please enter your name.");
-
                 nameInput.focus();
-
                 return;
             }
-
 
             if (!email) {
-
                 alert("Please enter your email.");
-
                 emailInput.focus();
-
                 return;
             }
-
 
             if (!password) {
-
                 alert("Please enter your password.");
-
                 passwordInput.focus();
-
                 return;
             }
-
 
             // Optional password length check
             if (password.length < 6) {
-
                 alert(
                     "Password must be at least 6 characters."
                 );
-
                 passwordInput.focus();
-
                 return;
             }
 
@@ -146,9 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // SEND TO FASTAPI
                 // =================================================
 
-                const response = await fetch(
-                    "/api/register",
-                    {
+                const response = await fetch("/api/register",{
                         method: "POST",
 
                         headers: {
@@ -156,17 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         },
 
                         body: JSON.stringify({
-
                             username: username,
-
                             email: email,
-
-                            password: password
-
-                            // Role is currently NOT sent
-                            // because your FastAPI User model
-                            // doesn't have a role field.
-
+                            password: password,
+                            role: role
                         })
                     }
                 );
@@ -290,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(
                     "Could not connect to the FastAPI server.\n\n" +
                     "Make sure your backend is running on " +
-                    ""/api/register""
+                    "/api/register"
                 );
 
             }

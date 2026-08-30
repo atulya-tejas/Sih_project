@@ -21,7 +21,11 @@ client = MongoClient(MONGO_URI,tlsCAFile=certifi.where())
 db = client["mywebsite"]
 userCollections = db["users"]
 
-app = FastAPI()
+app = FastAPI(
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    openapi_url="/api/openapi.json")
+
 security = HTTPBearer()
 app.add_middleware(
     CORSMiddleware,
