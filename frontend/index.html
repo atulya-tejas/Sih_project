@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge | Academia–Industry Collaboration</title>
+  <meta name="description" content="Bridging the gap between Academia and Industry through skills, internships and career opportunities.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .modal {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased flex flex-col min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- NAVBAR                                                                    -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- LOGO -->
+        <a href="#home" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
+            SB
+          </div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">SkillBridge</span>
+        </a>
+
+        <!-- NAV LINKS -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+          <a href="#home" class="hover:text-brand-600 transition-colors">Home</a>
+          <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+          <a href="#features" class="hover:text-brand-600 transition-colors">Features</a>
+          <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+        </nav>
+
+        <!-- AUTH BUTTONS -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button class="open-login-modal text-sm font-semibold text-slate-700 hover:text-brand-600 px-3 py-1.5 transition-colors">
+            Login
+          </button>
+          <button class="open-signup-modal text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 px-4 py-2 rounded-lg transition-colors">
+            Sign Up
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="p-2 text-slate-600 hover:text-slate-900 md:hidden">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 px-4 py-3 space-y-2 text-sm">
+      <a href="#home" class="block py-1 text-slate-700 hover:text-brand-600">Home</a>
+      <a href="#about" class="block py-1 text-slate-700 hover:text-brand-600">About</a>
+      <a href="#features" class="block py-1 text-slate-700 hover:text-brand-600">Features</a>
+      <a href="#contact" class="block py-1 text-slate-700 hover:text-brand-600">Contact</a>
+      <div class="pt-2 border-t border-slate-100 flex gap-2">
+        <button class="open-login-modal flex-1 py-1.5 text-center font-semibold text-slate-700 bg-slate-100 rounded">Login</button>
+        <button class="open-signup-modal flex-1 py-1.5 text-center font-semibold text-white bg-brand-600 rounded">Sign Up</button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION                                                              -->
+  <!-- ========================================================================= -->
+  <section id="home" class="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white text-center border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- Subtitle -->
+      <span class="text-xs sm:text-sm font-bold tracking-widest text-brand-600 uppercase mb-3 block">
+        CONNECT. LEARN. GROW.
+      </span>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight mb-6">
+        Bridging the gap between Academia and Industry through skills, internships and career opportunities.
+      </h1>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <button class="open-signup-modal px-6 py-3 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition-colors">
+          Get Started
+        </button>
+        <a href="#features" class="px-6 py-3 text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 rounded-lg shadow-sm transition-colors">
+          Explore
+        </a>
+      </div>
+
+      <!-- Students ↔ Industry Graphic -->
+      <div class="inline-flex items-center justify-center gap-6 sm:gap-10 bg-white border border-slate-200 shadow-sm rounded-xl px-6 py-4">
+        
+        <div class="flex flex-col items-center">
+          <span class="text-3xl sm:text-4xl mb-1">🎓</span>
+          <span class="text-sm font-bold text-slate-900">Students</span>
+          <span class="text-[11px] text-slate-500">Learn & Upskill</span>
+        </div>
+
+        <div class="text-xl sm:text-2xl font-bold text-brand-600">
+          ↔
+        </div>
+
+        <div class="flex flex-col items-center">
+          <span class="text-3xl sm:text-4xl mb-1">🏢</span>
+          <span class="text-sm font-bold text-slate-900">Industry</span>
+          <span class="text-[11px] text-slate-500">Hire & Mentor</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- WHY THIS PLATFORM? SECTION                                                -->
+  <!-- ========================================================================= -->
+  <section id="features" class="py-16 md:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          WHY THIS PLATFORM?
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          A single ecosystem powering every step of career readiness and collaboration.
+        </p>
+      </div>
+
+      <!-- 6 Clean Feature Cards (Skill Mapping | Internships | Placements | Training | Mentorship | Collaboration) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- 1. Skill Mapping -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">🎯</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Skill Mapping</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Assess your current skills, benchmark against industry standards, and identify key gaps.
+          </p>
+        </div>
+
+        <!-- 2. Internships -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">💼</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Internships</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Discover and apply for relevant, high-impact internships matching your skill level.
+          </p>
+        </div>
+
+        <!-- 3. Placements -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">🚀</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Placements</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Connect directly with hiring partners and recruiters for full-time career roles.
+          </p>
+        </div>
+
+        <!-- 4. Training -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">📚</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Training</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Access curated courses, practical certifications, and workshops to close skill gaps.
+          </p>
+        </div>
+
+        <!-- 5. Mentorship -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">👥</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Mentorship</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Get 1-on-1 guidance from industry leaders, technical mentors, and alumni networks.
+          </p>
+        </div>
+
+        <!-- 6. Collaboration -->
+        <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-brand-600 hover:shadow-sm transition-all">
+          <div class="text-2xl mb-3">🤝</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1">Collaboration</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Foster institutional partnerships, joint capstones, guest lectures, and live projects.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- HOW IT WORKS SECTION                                                      -->
+  <!-- ========================================================================= -->
+  <section id="about" class="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          HOW IT WORKS
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Your streamlined 4-step path from learning to career success.
+        </p>
+      </div>
+
+      <!-- 4-Step Linear Flow -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="p-6 rounded-xl bg-white border border-slate-200 text-center relative">
+          <div class="w-8 h-8 rounded-full bg-brand-50 text-brand-600 font-bold text-xs flex items-center justify-center mx-auto mb-3">
+            1
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 mb-1">Create Profile</h3>
+          <p class="text-xs text-slate-600">
+            Set up your academic and professional credentials.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-6 rounded-xl bg-white border border-slate-200 text-center relative">
+          <div class="w-8 h-8 rounded-full bg-brand-50 text-brand-600 font-bold text-xs flex items-center justify-center mx-auto mb-3">
+            2
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 mb-1">Assess Skills</h3>
+          <p class="text-xs text-slate-600">
+            Take assessments to map strengths and uncover gaps.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-6 rounded-xl bg-white border border-slate-200 text-center relative">
+          <div class="w-8 h-8 rounded-full bg-brand-50 text-brand-600 font-bold text-xs flex items-center justify-center mx-auto mb-3">
+            3
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 mb-1">Find Opportunities</h3>
+          <p class="text-xs text-slate-600">
+            Discover matched internships, courses, and projects.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="p-6 rounded-xl bg-white border border-slate-200 text-center relative">
+          <div class="w-8 h-8 rounded-full bg-brand-50 text-brand-600 font-bold text-xs flex items-center justify-center mx-auto mb-3">
+            4
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 mb-1">Get Hired</h3>
+          <p class="text-xs text-slate-600">
+            Apply with a verified portfolio and secure placement.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- FINAL CTA SECTION                                                         -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-slate-900 text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-3">
+        Ready to build your career?
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mb-6">
+        Join SkillBridge today to map your skills and unlock verified opportunities.
+      </p>
+      <button class="open-signup-modal px-8 py-3 text-sm font-bold text-slate-900 bg-white hover:bg-slate-100 rounded-lg shadow-sm transition-colors">
+        Get Started
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer id="contact" class="bg-slate-950 text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <span class="text-sm font-bold text-white block">SkillBridge</span>
+        <span class="text-[11px] text-slate-500">Smart India Hackathon (SIH26044)</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#home" class="hover:text-white">Home</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#features" class="hover:text-white">Features</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </div>
+      <div>
+        © 2026 SkillBridge. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+<!--auth MODAL (LOGIN / SIGN UP) -->
+
+<div id="auth-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+
+  <div class="bg-white rounded-xl max-w-sm w-full p-6 shadow-xl border border-slate-200 relative">
+
+    <!-- Close Button -->
+    <button id="modal-close-btn"
+            class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-lg font-bold"
+            aria-label="Close">
+      &times;
+    </button>
+
+
+    <!-- Heading -->
+    <h3 id="modal-heading"
+        class="text-lg font-bold text-slate-900 mb-1">
+      Get Started
+    </h3>
+
+    <p id="modal-subheading"
+       class="text-xs text-slate-500 mb-4">
+      Create your account to start mapping skills.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- SIGN UP FORM -->
+    <!-- ===================================================== -->
+
+    <form id="signup-form" class="space-y-3 text-xs">
+
+      <!-- Name -->
+      <div id="name-field">
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          Name
+        </label>
+
+        <input id="name-input"
+               type="text"
+               required
+               placeholder="Your full name"
+               class="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+      </div>
+
+
+      <!-- Role -->
+      <div id="role-field">
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          I am a
+        </label>
+
+        <select id="role-input"
+                class="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+          <option>Student</option>
+          <option>Institution / Faculty</option>
+          <option>Industry Recruiter</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- Email -->
+      <div>
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          Email
+        </label>
+
+        <input id="signup-email-input"
+               type="email"
+               required
+               placeholder="name@example.com"
+               class="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+      </div>
+
+
+      <!-- Password -->
+      <div>
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          Password
+        </label>
+
+        <div class="relative">
+
+          <input id="signup-password-input"
+                 type="password"
+                 required
+                 placeholder="••••••••"
+                 class="w-full px-3 py-2 pr-10 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+
+          <!-- Show / Hide Password -->
+          <button id="signup-toggle-password"
+                  type="button"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-700"
+                  aria-label="Show password"
+                  title="Show password">
+
+            <!-- Eye open -->
+            <svg id="signup-eye-open"
+                 class="w-4 h-4"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+
+              <circle cx="12"
+                      cy="12"
+                      r="3"
+                      stroke-width="2"/>
+
+            </svg>
+
+
+            <!-- Eye closed -->
+            <svg id="signup-eye-closed"
+                 class="hidden w-4 h-4"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3l18 18M10.584 10.587A2 2 0 0013.413 13.4M9.88 4.68A10.94 10.94 0 0112 4.5c4.477 0 8.268 2.943 9.542 7a10.97 10.97 0 01-4.043 5.033M6.228 6.228A10.96 10.96 0 002.458 12c1.274 4.057 5.065 7 9.542 7 1.61 0 3.13-.397 4.458-1.098"/>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Signup Button -->
+      <button id="signup-submit-btn"
+              type="submit"
+              class="w-full py-2.5 font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors mt-2">
+
+        Create Account
+
+      </button>
+
+    </form>
+
+
+    <!-- ===================================================== -->
+    <!-- LOGIN FORM -->
+    <!-- ===================================================== -->
+
+    <form id="login-form"
+          class="space-y-3 text-xs hidden">
+
+      <!-- Email -->
+      <div>
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          Email
+        </label>
+
+        <input id="login-email-input"
+               type="email"
+               required
+               placeholder="name@example.com"
+               class="w-full px-3 py-2 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+      </div>
+
+
+      <!-- Password -->
+      <div>
+
+        <label class="block font-semibold text-slate-700 mb-1">
+          Password
+        </label>
+
+        <div class="relative">
+
+          <input id="login-password-input"
+                 type="password"
+                 required
+                 placeholder="••••••••"
+                 class="w-full px-3 py-2 pr-10 border border-slate-300 rounded-lg outline-none focus:border-brand-600">
+
+
+          <!-- Show / Hide Password -->
+          <button id="login-toggle-password"
+                  type="button"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-700"
+                  aria-label="Show password"
+                  title="Show password">
+
+            <!-- Eye open -->
+            <svg id="login-eye-open"
+                 class="w-4 h-4"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+
+              <circle cx="12"
+                      cy="12"
+                      r="3"
+                      stroke-width="2"/>
+
+            </svg>
+
+
+            <!-- Eye closed -->
+            <svg id="login-eye-closed"
+                 class="hidden w-4 h-4"
+                 fill="none"
+                 stroke="currentColor"
+                 viewBox="0 0 24 24">
+
+              <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3l18 18M10.584 10.587A2 2 0 0013.413 13.4M9.88 4.68A10.94 10.94 0 0112 4.5c4.477 0 8.268 2.943 9.542 7a10.97 10.97 0 01-4.043 5.033M6.228 6.228A10.96 10.96 0 002.458 12c1.274 4.057 5.065 7 9.542 7 1.61 0 3.13-.397 4.458-1.098"/>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Login Button -->
+      <button id="login-submit-btn"
+              type="submit"
+              class="w-full py-2.5 font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-lg transition-colors mt-2">
+
+        Login
+
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+  <script src="signup.js"></script>
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
+
