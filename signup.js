@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // =================================================
 
                 const response = await fetch(
-                    "http://127.0.0.1:8000/register",
+                    "/api/register",
                     {
                         method: "POST",
 
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(
                     "Could not connect to the FastAPI server.\n\n" +
                     "Make sure your backend is running on " +
-                    "http://127.0.0.1:8000"
+                    ""/api/register""
                 );
 
             }

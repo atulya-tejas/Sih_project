@@ -72,12 +72,12 @@ def verify_token(
     
 
 #fast api home
-@app.get("/")
+@app.get("/api")
 def home():
     return {"message": "Hello World"}
 
 ##Register
-@app.post("/register")
+@app.post("/api/register")
 def register(user: User):
 
     hashed_password = bcrypt.hashpw(
@@ -100,7 +100,7 @@ def register(user: User):
 
 
 #Login
-@app.post("/login")
+@app.post("/api/login")
 def login(user: loginUser):
     storedUser = userCollections.find_one({"email":user.email})
     if storedUser is None:
@@ -129,7 +129,7 @@ def login(user: loginUser):
     }
 
 #authentication
-@app.get("/profile")
+@app.get("/api/profile")
 def profile(payload: dict = Depends(verify_token)):
 
     user_id = ObjectId(payload["user_id"])
@@ -151,7 +151,7 @@ def profile(payload: dict = Depends(verify_token)):
     }
 
 # MongoDB check
-@app.get("/test-db")
+@app.get("/api/test-db")
 def test_db():
     client.admin.command('ping')
     return {"message":"Mongodb Connected!"}
